@@ -11,6 +11,6 @@ class Factorizer {
 
     bool isComposite(int n);
 
-    std::string reduce(int a, int b);
+    std::string reduce(int& a, int& b);
 
 };

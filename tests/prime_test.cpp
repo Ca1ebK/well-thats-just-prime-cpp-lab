@@ -3,7 +3,7 @@
 #include <catch2/benchmark/catch_constructor.hpp>
 #include <catch2/generators/catch_generators_range.hpp>
 
-#include "../src/prime.hpp"
+#include "../src/Factorizer.hpp"
 
 #include <vector>
 
@@ -40,5 +40,20 @@ TEST_CASE( "#prime" ) {
     REQUIRE( factorizer.isComposite(4) == true);
     REQUIRE( factorizer.isComposite(21) == true);
     REQUIRE( factorizer.isComposite(100) == true);
+
+    // Extra Credit (Simplifying Fractions)
+    REQUIRE(factorizer.reduce(0, 12) == "0");
+    REQUIRE(factorizer.reduce(12, 0) == "undefined");
+    REQUIRE(factorizer.reduce(12, 12) == "1");
+    REQUIRE(factorizer.reduce(36, 12) == "3");
+    REQUIRE(factorizer.reduce(12, 14) == "6/7");
+    REQUIRE(factorizer.reduce(12, 37) == "12/37");
+    REQUIRE(factorizer.reduce(1, 1) == "1");
+    REQUIRE(factorizer.reduce(1, 37) == "1/37");
+    REQUIRE(factorizer.reduce(37, 1) == "37");
+    REQUIRE(factorizer.reduce(1000000, 500000) == "2");
+    REQUIRE(factorizer.reduce(18, 9) == "2");
+    REQUIRE(factorizer.reduce(18, 6) == "3");
+    REQUIRE(factorizer.reduce(18, 12) == "3/2");
 
 }
